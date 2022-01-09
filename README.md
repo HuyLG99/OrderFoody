@@ -1,6 +1,8 @@
 # order_coffee
+In this project you create a template with command buttons in horizontal scrolling list that will be used to filter the article categories. Items are displayed in a vertical scrolling list and include image, description, size, and command buttons to request quantity
+So in this project i code how to use provider and management state. 
 
-So in this project i code how to use provider and management state
+So i hope it will be work with you. 😂😂😂� 
 
 ## Getting Started
 # 📸 SCREENSHOOT
