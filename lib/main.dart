@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:order_coffee/cart_provider.dart';
-import 'package:order_coffee/product_list.dart';
+import 'package:order_coffee/cart/cart_provider.dart';
+import 'package:order_coffee/product/product_list.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (BuildContext) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: 'Flutter OrderCoffee',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.blue,
