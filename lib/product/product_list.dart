@@ -1,7 +1,8 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:order_coffee/cart_provider.dart';
-import 'package:order_coffee/dbhelper.dart';
+import 'package:order_coffee/cart/cart_provider.dart';
+import 'package:order_coffee/cart/cart_screen.dart';
+import 'package:order_coffee/db/dbhelper.dart';
 import 'package:order_coffee/model/cart.dart';
 import 'package:provider/provider.dart';
 
@@ -14,32 +15,48 @@ class ProductListScreen extends StatefulWidget {
 
 class _ProductListScreenState extends State<ProductListScreen> {
   List<String> productName = [
-    'Mango',
-    'Orange',
-    'Grapes',
-    'Banana',
-    'Chery',
-    'Peach',
-    'Mixed Fruit Basket',
+    'Bạc Sỉu Đá',
+    'Cà Phê Đen Đá',
+    'Cà Phê Sữa Đá',
+    'Trà Đào Cam Sả Đá',
+    'Trà Hạt Sen Đá',
+    'Trà Long Nhãn Hạt Chia',
+    'Trà Đen Macchiato',
+    'Hồng Trà Sữa Trân Châu',
+    'Cà Phê Đá Xay',
   ];
   List<String> productUnit = [
-    'KG',
-    'KG',
-    'KG',
-    'KG',
-    'KG',
-    'KG',
-    'KG',
+    'S',
+    'S',
+    'S',
+    'S',
+    'S',
+    'S',
+    'S',
+    'S',
+    'S',
   ];
-  List<int> productPrice = [10, 20, 30, 40, 50, 60, 70];
+  List<int> productPrice = [
+    29000,
+    29000,
+    29000,
+    29000,
+    29000,
+    29000,
+    29000,
+    29000,
+    29000,
+  ];
   List<String> productImage = [
-    'https://image.shutterstock.com/image-photo/mango-isolated-on-white-background-600w-610892249.jpg',
-    'https://image.shutterstock.com/image-photo/orange-fruit-slices-leaves-isolated-600w-1386912362.jpg',
-    'https://image.shutterstock.com/image-photo/green-grape-leaves-isolated-on-600w-533487490.jpg',
-    'https://media.istockphoto.com/photos/banana-picture-id1184345169?s=612x612',
-    'https://media.istockphoto.com/photos/cherry-trio-with-stem-and-leaf-picture-id157428769?s=612x612',
-    'https://media.istockphoto.com/photos/single-whole-peach-fruit-with-leaf-and-slice-isolated-on-white-picture-id1151868959?s=612x612',
-    'https://media.istockphoto.com/photos/fruit-background-picture-id529664572?s=612x612',
+    'https://product.hstatic.net/1000075078/product/bac-siu-da_9bf82220a1a54847aa7357de541e7552_large.jpg',
+    'https://product.hstatic.net/1000075078/product/ca-phe-sua-da_b00c53d18cd84144a164790323106a2f_large.jpg',
+    'https://product.hstatic.net/1000075078/product/ca-phe-sua-da_b00c53d18cd84144a164790323106a2f_large.jpg',
+    'https://product.hstatic.net/1000075078/product/tra-dao-cam-xa_668678_400x400_207c526c987c4026877ebae748c62afd_large.jpg',
+    'https://product.hstatic.net/1000075078/product/tra-sen_905594_400x400_c82fd1b3786d45f380cf4c15e9af7ab9_large.jpg',
+    'https://product.hstatic.net/1000075078/product/tra-nhan-da_484810_400x400_446acb3ad76a48d38a98855cd7be54cd_large.jpg',
+    'https://product.hstatic.net/1000075078/product/tra-nhan-da_484810_400x400_446acb3ad76a48d38a98855cd7be54cd_large.jpg',
+    'https://product.hstatic.net/1000075078/product/tra-den-matchiato_430281_400x400_88f47618a6b84c2d9ad633d3298fb390_large.jpg',
+    'https://product.hstatic.net/1000075078/product/cf-da-xay-_1__158038_400x400_aee86b1c0779491f8c2778ddadf41f15_large.jpg',
   ];
 
   DBHelper? dbHelper = DBHelper();
@@ -49,12 +66,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Product List'),
+        title: const Text('Product List'),
         centerTitle: true,
         actions: [
           InkWell(
             onTap: () {
-              // Navigator.push(context,MaterialPageRoute(builder: (context) => CartScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
             },
             child: Center(
               child: Badge(
