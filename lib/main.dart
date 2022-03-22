@@ -1,33 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:order_coffee/cart/cart_provider.dart';
-import 'package:order_coffee/product/product_list.dart';
-import 'package:provider/provider.dart';
+import 'package:order_coffee/views/home.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CartProvider(),
-      child: Builder(
-        builder: (BuildContext) {
-          return MaterialApp(
-            title: 'Flutter OrderCoffee',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
+    return Builder(
+      builder: (BuildContext) {
+        return MaterialApp(
+          title: 'Food recipe',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            primaryColor: Colors.white,
+            textTheme: TextTheme(
+              bodyText2: TextStyle(color: Colors.white),
             ),
-            home: const ProductListScreen(),
-          );
-        },
-      ),
+          ),
+          home: HomePage(),
+        );
+      },
     );
   }
 }

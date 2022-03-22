@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Badge extends StatelessWidget {
   const Badge({
-    Key? key,
-    required this.iconButton,
-    required this.value,
+    Key key,
+    this.iconButton,
+    this.value,
     this.color = Colors.red,
   }) : super(key: key);
 
